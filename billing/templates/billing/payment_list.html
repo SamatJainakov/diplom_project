@@ -1,0 +1,40 @@
+{% extends 'billing/base.html' %}
+{% block content %}
+
+<div class="container" style="margin-top: 50px">
+    <h3 class="text-center" style="margin-bottom: 30px">Payment list</h3>
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Invoice</th>
+      <th scope="col">Payment date</th>
+      <th scope="col">Payment amount</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for item in object_list %}
+        <tr>
+            <th scope="row">{{item.id}}</th>
+            <td>{{ item.invoice }}</td>
+            <td>{{ item.payment_date }}</td>
+            <td>{{ item.payment_amount }}</td>
+        </tr>
+{% endfor %}
+  </tbody>
+        <div class="form-container mx-auto">
+
+            <form action="">
+                <div class="inputBox">
+                </div>
+                <input type="number" placeholder="invoice" name="{{invoice}}">
+                <input type="date" placeholder="payment date" name="{{payment_date}}">
+                <input type="number" placeholder="payment amount" name="{{payment_amount}}">
+                <input type="submit" value="Оплата">
+            </form>
+
+        </div>
+</table>
+</div>
+
+{% endblock content %}

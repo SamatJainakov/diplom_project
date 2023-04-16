@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <!-- magnific popup css link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+    <!-- font awesome file link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+    <!-- bootstrap file link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap-reboot.min.css">
+
+    <!-- custom css file link -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Отопление</title>
+</head>
+<body>
+
+<!--header section starts-->
+
+<header class="header fixed-top">
+    <a href="#" class="logo"><img src="{% static 'images/logo.png' %}" alt=""></a>
+
+    <nav>
+        <ul>
+            <li><a href="#home">home</a></li>
+            <li><a href="#about">about</a></li>
+            <li><a href="#service">service</a></li>
+            <li><a href="#project">kinds</a></li>
+            <li><a href="#contact">contact</a></li>
+        </ul>
+    </nav>
+    <div class="fas fa-bars"></div>
+</header>
+
+<!--header section ends-->
+
+<!-- home section starts -->
+
+<section id="home" class="home container-fluid p-0">
+
+    <div class="row hero">
+        <div class="col pl-5 ml-sm-5 p-0">
+            <h1 class="text1">Отопление</h1>
+            <h3 class="text2">для города Бишкек</h3>
+        </div>
+    </div>
+
+    <div class="counting">
+        <div class="box">
+            <h1 class="count" data-count="1200">1200+</h1>
+            <h3>Подключенные дома</h3>
+        </div>
+
+        <div class="box">
+            <h1 class="count" data-count="15">15+</h1>
+            <h3>Компаний</h3>
+        </div>
+
+        <div class="box">
+            <h1 class="count" data-count="100">100+</h1>
+            <h3>Тепловая мощность кВт</h3>
+        </div>
+
+        <div class="box">
+            <h1 class="count" data-count="8400">8400+</h1>
+            <h3>Срок службы</h3>
+        </div>
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+
+
+
+{% block content %}
+{% endblock content %}
+
+
+
+<!-- footer section starts -->
+
+<section class="container-fluid footer">
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <h2><img src="{% static 'images/logo.png' %}" alt=""></h2>
+            <p>lorem</p>
+        </div>
+
+        <div class="col-md-3">
+            <h2>Наш адрес</h2>
+            <div class="list">
+                <a href="#">Кыргызстан</a>
+                <a href="#">Казахстан</a>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <h2>Подпишитесь</h2>
+            <div class="list">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">Pinterest</a>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="credit">Created by <span>Samat</span> | All rights reserved</h1>
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+
+
+<!-- jquery file link -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<!-- magnific popup link -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<!-- main/custom javascript file link -->
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

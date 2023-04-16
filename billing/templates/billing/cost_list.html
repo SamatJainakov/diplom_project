@@ -1,0 +1,30 @@
+{% extends 'billing/base.html' %}
+{% block content %}
+
+<div class="container" style="margin-top: 50px">
+    <h3 class="text-center" style="margin-bottom: 30px">Cost list</h3>
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">property_id</th>
+      <th scope="col">vendor</th>
+      <th scope="col">usage</th>
+      <th scope="col">price</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for item in object_list %}
+        <tr>
+            <th scope="row">{{item.id}}</th>
+            <td>{{ item.property_id }}</td>
+            <td>{{ item.vendor }}</td>
+            <td>{{ item.usage }}</td>
+            <td>{{ item.price }}</td>
+        </tr>
+{% endfor %}
+  </tbody>
+</table>
+</div>
+
+{% endblock content %}
