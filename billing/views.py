@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
+from .forms import UserForm
 
 from .models import Vendor, Property, Payment, Meter, Reading, Usage, Cost, Invoice, Budget, User
 

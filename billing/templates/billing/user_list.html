@@ -27,11 +27,12 @@
 
     <div class="form-container mx-auto">
 
-        <form action="">
+        <form method="post">
+            {% csrf_token %}
             <div class="inputBox">
             </div>
-            <input type="email" placeholder="e-mail" name="email">
-            <input type="password" placeholder="password" name="password">
+            <input type="email" placeholder="e-mail" name="{{email}}">
+            <input type="password" placeholder="password" name="{{password}}">
             <input type="submit" value="Регистрация">
         </form>
 
