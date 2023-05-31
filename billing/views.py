@@ -1,13 +1,30 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from django.views import generic
-from .forms import UserForm
+from .forms import *
 
-from .models import Vendor, Property, Payment, Meter, Reading, Usage, Cost, Invoice, Budget, User
+from .models import Vendor, Property, Payment, Reading, Usage, Cost, Invoice
 
 
-class Login(generic.ListView):
-    model = User
-    template_name = 'user_list.html'
+def user(request):
+    form = UserForm()
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('payment')
+    context = {'form': form}
+    return render(request, 'billing/user_list.html', context)
+
+
+def payment(request):
+    form = PaymentForm()
+    if request.method == 'POST':
+        form = PaymentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('Успешно!!!')
+    context = {'form': form}
+    return render(request, 'billing/payment_list.html', context)
 
 
 class VendorList(generic.ListView):
@@ -18,16 +35,6 @@ class VendorList(generic.ListView):
 class PropertyList(generic.ListView):
     model = Property
     template_name = 'property_list.html'
-
-
-class PaymentList(generic.ListView):
-    model = Payment
-    template_name = 'payment_list.html'
-
-
-class MeterList(generic.DetailView):
-    model = Meter
-    template_name = 'meter_detail.html'
 
 
 class ReadingList(generic.DetailView):
@@ -48,11 +55,6 @@ class CostList(generic.ListView):
 class InvoiceList(generic.ListView):
     model = Invoice
     template_name = 'invoice_list.html'
-
-
-class BudgetList(generic.DetailView):
-    model = Budget
-    template_name = 'budget_detail.html'
 
     # def get_context_data(self, *, object_list=None, **kwargs):
     #     context = super().get_context_data()

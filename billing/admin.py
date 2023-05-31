@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Vendor, Property, Payment, Meter, Reading, Usage, Cost, Invoice, Budget, User
+from .models import Vendor, Property, Payment, Reading, Usage, Cost, Invoice, User
 
 
 @admin.register(Vendor)
@@ -16,25 +16,21 @@ class PropertyAdmin(admin.ModelAdmin):
 
 @admin.register(Payment)
 class PaymentAdmin(admin.ModelAdmin):
-    list_display = ['invoice', 'payment_date', 'payment_amount']
-    search_fields = ['invoice', 'payment_amount']
-
-
-@admin.register(Meter)
-class MeterAdmin(admin.ModelAdmin):
-    list_display = ['property_id', 'meter_location']
-    search_fields = ['meter_location', ]
+    date_hierarchy = "payment_date"
+    list_display = ['invoice', 'payment_date', 'payment_method', 'payment_amount']
+    search_fields = ['payment_date', ]
+    sortable_by = ['payment_date', ]
 
 
 @admin.register(Reading)
 class ReadingAdmin(admin.ModelAdmin):
-    list_display = ['meter', 'reading_date', 'reading_value']
+    list_display = ['reading_date', 'reading_value']
     search_fields = ['reading_date', 'reading_value']
 
 
 @admin.register(Usage)
 class UsageAdmin(admin.ModelAdmin):
-    list_display = ['property_id', 'meter', 'start_date', 'end_date', 'usage_amount']
+    list_display = ['property_id', 'start_date', 'end_date', 'usage_amount']
     search_fields = ['usage_amount', ]
 
 
@@ -48,12 +44,6 @@ class CostAdmin(admin.ModelAdmin):
 class InvoiceAdmin(admin.ModelAdmin):
     list_display = ['vendor', 'property', 'invoice_number', 'invoice_date', 'due_date', 'amount_due']
     search_fields = ['invoice_number', ]
-
-
-@admin.register(Budget)
-class BudgetAdmin(admin.ModelAdmin):
-    list_display = ['property_id', 'budget']
-    search_fields = ['property_id', 'budget']
 
 
 @admin.register(User)

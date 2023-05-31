@@ -310,7 +310,7 @@ body{
   justify-content: space-between;
 }
 
-.contact .form-container form input[type="text"]{
+.contact .form-container form input[type="password"]{
   width:49%;
 }
 
