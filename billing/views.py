@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from django.views import generic
 from .forms import *
 
-from .models import Vendor, Property, Payment, Reading, Usage, Cost, Invoice
+from .models import *
 
 
 def user(request):
@@ -11,9 +11,20 @@ def user(request):
         form = UserForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('payment')
+            return redirect('cabinet')
     context = {'form': form}
     return render(request, 'billing/user_list.html', context)
+
+
+def detail(request):
+    form = PropertyForm()
+    if request.method == 'POST':
+        form = PropertyForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('user')
+    context = {'form': form}
+    return render(request, 'billing/private_cabinet.html', context)
 
 
 def payment(request):
@@ -32,19 +43,9 @@ class VendorList(generic.ListView):
     template_name = 'vendor_list.html'
 
 
-class PropertyList(generic.ListView):
-    model = Property
-    template_name = 'property_list.html'
-
-
 class ReadingList(generic.DetailView):
     model = Reading
     template_name = 'reading_detail.html'
-
-
-class UsageList(generic.ListView):
-    model = Usage
-    template_name = 'usage_list.html'
 
 
 class CostList(generic.ListView):

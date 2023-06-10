@@ -1,0 +1,49 @@
+{% extends 'billing/base.html' %}
+{% block content %}
+{% load static %}
+
+<h1 class="heading">Введите данные</h1>
+<br>
+<br>
+<section class="contact">
+<div class="contact-box-container mx-auto">
+    <div class="form-container mx-auto">
+            <form method="post">
+                {% csrf_token %}
+                <div> <h3>Имя</h3>
+                    {{ form.fullname }}
+                </div>
+                <div> <h3>Область</h3>
+                    {{ form.region }}
+                </div>
+                <div> <h3>Город</h3>
+                    {{ form.city }}
+                </div>
+                <div> <h3>Район</h3>
+                    {{ form.district }}
+                </div>
+                <br>
+                <div> <h3>Адрес</h3>
+                    {{ form.address }}
+                </div>
+                <div> <h3>Телефонный номер</h3>
+                    {{ form.phone_number }}
+                </div>
+                <div> <h3>Электронная почта</h3>
+                    {{ form.email }}
+                </div>
+                <div> <h3>Дом</h3>
+                   {{ form.home }}
+                </div>
+                <div> <h3>Квартира</h3>
+                   {{ form.apartment }}
+                </div>
+                <div class="inputBox">
+            </div>
+              <input type="submit" value="Отправить">
+            </form>
+    </div>
+</div>
+</section>
+
+{% endblock content %}

@@ -17,4 +17,10 @@ class VendorForm(forms.ModelForm):
 class PaymentForm(forms.ModelForm):
     class Meta:
         model = Payment
-        fields = ['invoice', 'payment_method', 'payment_amount']
+        fields = ['invoice', 'payment_amount']
+
+
+class PropertyForm(forms.ModelForm):
+    class Meta:
+        model = Property
+        fields = '__all__'
